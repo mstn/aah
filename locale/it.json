@@ -1,0 +1,13 @@
+{
+  "app.pages.home.hello": "Ciao",
+  "app.pages.home.typeYourAddress": "Scrivi dove abiti per trovare esercenti vicino a te",
+  "app.pages.company.localShippingAvailable": "Effettua consegne a domicilio",
+  "app.pages.add.title": "Aggiungi esercente",
+  "app.pages.add.save": "Salva",
+  "app.components.addCompany.addMoreUsefulInfo": "Aggiungi altre informazioni utili",
+  "app.components.addCompany.localShippingAvailable": "Effettua consegne a domicilio",
+  "app.components.addCompany.email": "Email",
+  "app.components.addCompany.phone": "Telefono",
+  "app.components.addCompany.address": "Indirizzo",
+  "app.components.addCompany.name": "Nome esercente o esercizio"
+}

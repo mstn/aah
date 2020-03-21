@@ -1,5 +1,5 @@
 {
-  "name": "covid",
+  "name": "aah",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,8 +8,16 @@
     "start": "next start"
   },
   "dependencies": {
+    "@material-ui/core": "^4.9.7",
+    "@material-ui/icons": "^4.9.1",
     "next": "9.3.1",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-intl": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.2",
+    "@types/react": "^16.9.25",
+    "typescript": "^3.8.3"
   }
 }

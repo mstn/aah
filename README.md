@@ -1,30 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
+# All At Home (Aah!)
 
-## Getting Started
+* 🚧 WIP 🚧
+* ⚠️ Questo progetto è ad uno stato iniziale e non è usabile ⚠️
+* 🧡 Aiutaci a farlo partire 🧡
 
-First, run the development server:
+Al tempo del Coronavirus, la spesa e le consegne a domicilio sono un problema quotidiano comune a tutti.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Lo scopo del progetto è di costruire un'app molto semplice per consentire alle persone di provvedere ai propri bisogni evitando il contatto con gli altri.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Le grosse catene che offrono servizi di consegna o simili sono intasate. Tuttavia esistono piccole realtà distribuite sul territorio (piccoli negozi, aziende agricole) che stanno funzionando, ma forse hanno bisogno di più visibilità.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+L'app ha una visione anche di più lungo periodo. Vogliamo costruire qualcosa per il dopo epidemia. La gente ha iniziato a lavorare da casa e comprare locale. Sarebbe opportuno mantenere queste buone abitudini anche quando la crisi sarà passata.
 
-## Learn More
+## Informazioni techniche
 
-To learn more about Next.js, take a look at the following resources:
+Vedi [README in inglese](README.en.md).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contribuisci
 
-You can check out [the Next.js GitHub repository](https://github.com/zeit/next.js/) - your feedback and contributions are welcome!
+TODO
 
-## Deploy on ZEIT Now
+## Progetti simili
 
-The easiest way to deploy your Next.js app is to use the [ZEIT Now Platform](https://zeit.co/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* https://www.covid19italia.help/
+* https://www.filaindiana.it/ 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Iniziative locali
+
+* @milanini Google moduli per gestire gli acquisti condomiali
+
+## Riferimenti
+
+* [Discussione su Covid19Italia](
+https://github.com/emergenzeHack/covid19italia/issues/269)
+
