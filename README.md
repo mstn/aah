@@ -52,13 +52,9 @@ https://github.com/emergenzeHack/covid19italia/issues/269) 🇮🇹
 
 ### Getting Started
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
+* Install dependencies `yarn`
+* Set the url for the GraphQL server in `next.config.js`. You can find the server project [here](https://github.com/mstn/aah-server),
+* Start the app locally `yarn dev`
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

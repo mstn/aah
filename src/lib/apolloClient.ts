@@ -14,7 +14,7 @@ function createApolloClient(initialState, ctx) {
   return new ApolloClient({
     ssrMode: Boolean(ctx),
     link: new HttpLink({
-      uri: 'http://localhost:4000/graphql', 
+      uri: process.env.graphql, 
       credentials: 'same-origin',
       fetch,
     }),
