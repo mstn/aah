@@ -11,9 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 
-import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import CloseIcon from '@material-ui/icons/Close';
 
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
@@ -21,8 +19,8 @@ import HomeIcon from '@material-ui/icons/Home';
 
 import Copyright from './Copyright';
 import Link from 'next/link';
-import { FormattedMessage } from 'react-intl';
-import AddCompany from './AddCompany';
+
+import AddCompanyPage from './AddCompanyPage';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -116,23 +114,7 @@ export default function PageLayout({ children }: any) {
         </Container>
       </main>
       <Dialog fullScreen open={open} onClose={() => setOpen(false)} >
-        <AppBar className={classes.appBar}>
-          <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={() => setOpen(false)} aria-label="close">
-              <CloseIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              <FormattedMessage id="app.pages.add.title" />
-            </Typography>
-            <Button color="inherit" onClick={() => setOpen(false)}>
-              <FormattedMessage id="app.pages.add.save" />
-            </Button>
-          </Toolbar>
-        </AppBar>
-        <main className={classes.content}>
-          <div className={classes.appBarSpacer} />
-          <AddCompany />
-        </main>
+        <AddCompanyPage onClose={() => setOpen(false)}/>
       </Dialog>
     </div>
   )
