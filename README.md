@@ -1,36 +1,76 @@
 # All At Home (Aah!)
 
 * 🚧 WIP 🚧
-* ⚠️ Questo progetto è ad uno stato iniziale e non è usabile ⚠️
-* 🧡 Aiutaci a farlo partire 🧡
+* ⚠️ This project is not currently usable ⚠️
+* 🧡 Help us! 🧡
 
-Al tempo del Coronavirus, la spesa e le consegne a domicilio sono un problema quotidiano comune a tutti.
+In Italy, during the covid lockdown, a common problem is to find food shops offering delivery service or pick-up points. Supermarkets and big operators are often stuck. Small local shops are working, but some of them are struggling for the increased demand.
 
-Lo scopo del progetto è di costruire un'app molto semplice per consentire alle persone di provvedere ai propri bisogni evitando il contatto con gli altri.
+The goal of this project is to make easier for people to find and buy from local places that offer home delivery and/or pick-up points. In this way queues and, as a consequence, human contacts can be more easily avoided.
 
-Le grosse catene che offrono servizi di consegna o simili sono intasate. Tuttavia esistono piccole realtà distribuite sul territorio (piccoli negozi, aziende agricole) che stanno funzionando, ma forse hanno bisogno di più visibilità.
+This project has also a broader view. In these days, we learned that work from home and local shopping are possible. We would like to built a solid platform to allow people to buy local even after the epidemic is over.
 
-L'app ha una visione anche di più lungo periodo. Vogliamo costruire qualcosa per il dopo epidemia. La gente ha iniziato a lavorare da casa e comprare locale. Sarebbe opportuno mantenere queste buone abitudini anche quando la crisi sarà passata.
+## How can I help?
 
-## Informazioni techniche
+* Code and design
+* Write technical documentation
+* Add data
+* Share
+* Suggest ideas
+* Find a place to host the application
+* Find a better name for the project
 
-Vedi [README in inglese](README.en.md).
+## Can I use your code in my country/town/neighborhood?
 
-## Contribuisci
+Yes! License is aGPL.
 
-TODO
-
-## Progetti simili
+## Similar projects
 
 * https://www.covid19italia.help/
 * https://www.filaindiana.it/ 
+* https://vicinoesicuro.it/
 
-## Iniziative locali
+## References
 
-* @milanini Google moduli per gestire gli acquisti condomiali
+* Where it started: [discussion on Covid19Italia](
+https://github.com/emergenzeHack/covid19italia/issues/269) 🇮🇹
+* [This thread](https://edgeryders.eu/t/what-did-we-discuss-during-the-covid19-community-response-call-1-what-will-we-do-next/12945) on Edgeryders
 
-## Riferimenti
+## Technical information
 
-* [Discussione su Covid19Italia](
-https://github.com/emergenzeHack/covid19italia/issues/269)
+### Tech stack
+
+* Nextjs, React
+* GraphQL as data layer
+* Apollo server
+
+### Options
+
+* Static web site (full database dump, usuable offline)
+* Static web site + GraphQL server
+* Your app + GraphQL server
+
+### Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Learn More
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/zeit/next.js/) - your feedback and contributions are welcome!
+
 

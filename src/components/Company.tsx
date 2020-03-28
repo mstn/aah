@@ -23,8 +23,10 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function Company() {
+export default function Company(props: any) {
   const classes = useStyles();
+
+  const { name, address, notes } = props;
 
   return (
     <Card className={classes.root}>
@@ -32,14 +34,13 @@ export default function Company() {
         avatar={
           <StorefrontIcon />
         }
-        title="Conad Market"
-        subheader="Via del Mille 12"
+        title={name}
+        subheader={address}
       />
       <CardContent>
-        <Contacts />
+        <Contacts {...props }/>
         <Typography variant="body2" color="textSecondary" component="p">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          {notes}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

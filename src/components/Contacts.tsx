@@ -23,8 +23,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Contacts() {
+export default function Contacts(props: any) {
   const classes = useStyles();
+
+  const { phone, email, isLocalShippingAvailable } = props;
 
   return (
     <List
@@ -36,20 +38,20 @@ export default function Contacts() {
         <ListItemIcon>
           <PhoneIcon />
         </ListItemIcon>
-        <ListItemText primary="6666 666666" />
+        <ListItemText primary={phone} />
       </ListItem>
       <ListItem button>
         <ListItemIcon>
           <EmailIcon />
         </ListItemIcon>
-        <ListItemText primary="hello@email.com" />
+        <ListItemText primary={email} />
       </ListItem>
-      <ListItem button>
+      {isLocalShippingAvailable && <ListItem button>
         <ListItemIcon>
           <LocalShippingIcon />
         </ListItemIcon>
         <ListItemText primary={<FormattedMessage id="app.pages.company.localShippingAvailable" />} />
-      </ListItem>
+      </ListItem>}
     </List>
   );
 }
