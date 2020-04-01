@@ -85,7 +85,6 @@ const AddCompanyPage = (props: any) => {
     // https://github.com/apollographql/react-apollo/issues/2614
     onError: () => {},
   });
-
   React.useEffect(() => {
     if (result.called && !result.error && result.data) {
       onClose();
@@ -103,7 +102,9 @@ const AddCompanyPage = (props: any) => {
           <Typography variant="h6" className={classes.title}>
             <FormattedMessage id="app.pages.add.title" />
           </Typography>
-          <Button color="inherit" onClick={() => {
+          <Button 
+            color="inherit"
+            onClick={() => {
             // XXX not very React-y!
             // based on https://codesandbox.io/s/1y7noyrlmq
             document
@@ -117,15 +118,17 @@ const AddCompanyPage = (props: any) => {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Paper className={classes.root}>
-          <AddCompanyForm onSubmit={
-            company =>
-              addCompany({
-                variables: {
-                  ...company,
-                  kind: 'test'
-                },
-              })
-          } />
+          <AddCompanyForm
+            onSubmit={
+              company =>
+                addCompany({
+                  variables: {
+                    ...company,
+                    kind: 'test'
+                  },
+                })
+            } 
+          />
         </Paper>
       </main>
     </React.Fragment>

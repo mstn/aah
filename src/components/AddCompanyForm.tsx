@@ -2,6 +2,8 @@ import { useIntl, FormattedMessage } from 'react-intl';
 
 import { Form, Field } from 'react-final-form';
 
+import { isEmail, isRequired, isPhoneNumber } from '../lib/forms';
+
 import Typography from '@material-ui/core/Typography';
 
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -16,19 +18,20 @@ import PersonIcon from '@material-ui/icons/Person';
 import EmailIcon from '@material-ui/icons/Email';
 import Grid from '@material-ui/core/Grid';
 
-// TODO add validation per field
 const AddCompanyForm = (props: any) => {
   const { onSubmit } = props;
   const intl = useIntl();
   return (
     <Form
       onSubmit={onSubmit}
+      
       render={({ handleSubmit }) => (
         <form id="addCompanyForm" onSubmit={handleSubmit}>
           <Grid container spacing={3} alignItems="center">
             <Grid item xs={12}>
               <Field
                 name="name"
+                validate={isRequired}
                 render={({ input, meta }) => (
                   <TextField
                     fullWidth
@@ -49,6 +52,7 @@ const AddCompanyForm = (props: any) => {
             <Grid item xs={12}>
               <Field
                 name="address"
+                validate={isRequired}
                 render={({ input, meta }) => (
                   <TextField
                     fullWidth
@@ -69,6 +73,7 @@ const AddCompanyForm = (props: any) => {
             <Grid item xs={12}>
               <Field
                 name="phone"
+                validate={isPhoneNumber}
                 render={({ input, meta }) => (
                   <TextField
                     fullWidth
@@ -89,6 +94,7 @@ const AddCompanyForm = (props: any) => {
             <Grid item xs={12}>
               <Field
                 name="email"
+                validate={isEmail}
                 render={({ input, meta }) => (
                   <TextField
                     fullWidth
@@ -129,6 +135,7 @@ const AddCompanyForm = (props: any) => {
               </Typography>
               <Field
                 name="notes"
+                validate={isRequired}
                 render={({ input, meta }) => (
                   <TextField
                     fullWidth
