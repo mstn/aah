@@ -124,6 +124,7 @@ const AddCompanyPage = (props: any) => {
                 addCompany({
                   variables: {
                     ...company,
+                    isLocalDeliveryAvailable: !!company.isLocalDeliveryAvailable,
                     kind: 'test'
                   },
                 })
