@@ -12,7 +12,7 @@ const Page = (props: any) => {
 
   const [state, setState] = React.useState(applyFilter(props.companies, props.currentPage, search));
   
-  const setSearch = (keyword: string) => router.push('/?search=' + keyword);
+  const setSearch = (keyword: string) => router.push(`${process.env.ASSET_PREFIX}/?search=${keyword}`);
 
   React.useEffect(() => {
     setState(applyFilter(props.companies, props.currentPage, search))
