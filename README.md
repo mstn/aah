@@ -1,7 +1,5 @@
 # All At Home (Aah!)
 
-* 🚧 WIP 🚧
-* ⚠️ This project is not currently usable ⚠️
 * 🧡 Help us! 🧡
 
 In Italy, during the covid lockdown, a common problem is to find food shops offering delivery service or pick-up points. Supermarkets and big operators are often stuck. Small local shops are working, but some of them are struggling for the increased demand.
@@ -14,11 +12,53 @@ This project has also a broader view. In these days, we learned that work from h
 
 * Code and design
 * Write technical documentation
-* Add data
 * Share
 * Suggest ideas
-* Find a place to host the application
 * Find a better name for the project
+
+## Design principles
+
+From a JSON files with a list of companies, we can generate a fully static webapp.
+
+* More performant, pages are pre-rendered at compile time.
+* More resilient, you do not need a complex infrastructure to run it
+* It works offline, can be downloaded and does not require an Internet connection
+
+## Getting started
+
+Prerequirements: nodejs and yarn.
+
+Copy a file `companies.json` with your companies in `mocks` folder. Companies should have the same format as in the example file.
+
+Install `nodejs` dependencies.
+
+```
+yarn
+```
+
+Export the app.
+
+```
+$ yarn export
+```
+
+In `out` you can find the generated html. You can deploy it on github or where you like.
+
+```
+$ serve out
+```
+
+## Locale and i18n
+
+Currently, we have only one i18n file for Italian. However, the app can be customised for your country and language.
+
+* Put a json describing i18n labels in `src/locale`.
+* Setup your locale and i18n labels In `src/pages/_app.tsx` 
+
+## Adding dynamical behaviors
+
+If you set `showAddCompanyForm` to true in `next.config.js`, a button for adding new companies will appear in the toolbar.
+The logic of adding a company is missing, you need to send data to a REST endpoint. However, form validation logic is implemented.
 
 ## Can I use your code in my country/town/neighborhood?
 
@@ -36,29 +76,8 @@ Yes! License is aGPL.
 https://github.com/emergenzeHack/covid19italia/issues/269) 🇮🇹
 * [This thread](https://edgeryders.eu/t/what-did-we-discuss-during-the-covid19-community-response-call-1-what-will-we-do-next/12945) on Edgeryders
 
-## Technical information
 
-### Tech stack
-
-* Nextjs, React
-* GraphQL as data layer
-* Apollo server
-
-### Options
-
-* Static web site (full database dump, usuable offline)
-* Static web site + GraphQL server
-* Your app + GraphQL server
-
-### Getting Started
-
-* Install dependencies `yarn`
-* Set the url for the GraphQL server in `next.config.js`. You can find the server project [here](https://github.com/mstn/aah-server),
-* Start the app locally `yarn dev`
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-### Learn More
+## Learn More
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
 

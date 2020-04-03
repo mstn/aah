@@ -1,6 +1,5 @@
 {
   "app.pages.home.hello": "Ciao",
-  "app.pages.home.typeYourAddress": "Scrivi dove abiti per trovare esercenti vicino a te",
   "app.pages.company.localShippingAvailable": "Effettua consegne a domicilio",
   "app.pages.add.title": "Aggiungi esercente",
   "app.pages.add.save": "Salva",
@@ -9,5 +8,9 @@
   "app.components.addCompany.email": "Email",
   "app.components.addCompany.phone": "Telefono",
   "app.components.addCompany.address": "Indirizzo",
-  "app.components.addCompany.name": "Nome esercente o esercizio"
+  "app.components.addCompany.name": "Nome esercente o esercizio",
+  "app.components.searchBox.search": "Inizia a scrivere per cercare nella lista",
+  "app.components.nav.home": "Home",
+  "app.components.nav.fav": "Preferiti",
+  "app.components.nav.about": "Chi siamo"
 }
