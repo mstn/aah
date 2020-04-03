@@ -9,6 +9,8 @@
   "app.components.addCompany.phone": "Telefono",
   "app.components.addCompany.address": "Indirizzo",
   "app.components.addCompany.name": "Nome esercente o esercizio",
-  "app.components.searchBox.search": "Inizia a scrivere per cercare nella lista"
-
+  "app.components.searchBox.search": "Inizia a scrivere per cercare nella lista",
+  "app.components.nav.home": "Home",
+  "app.components.nav.fav": "Preferiti",
+  "app.components.nav.about": "Chi siamo"
 }

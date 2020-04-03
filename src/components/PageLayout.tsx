@@ -1,24 +1,29 @@
 import React from 'react';
 
 import Head from 'next/head';
+import Router from 'next/router';
 
 import { makeStyles } from '@material-ui/core/styles';
+import { useIntl } from 'react-intl';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
 
 import Dialog from '@material-ui/core/Dialog';
 
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 import HomeIcon from '@material-ui/icons/Home';
+import InfoIcon from '@material-ui/icons/Info';
 
-import Copyright from './Copyright';
 import Link from 'next/link';
+
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import AddCompanyPage from './AddCompanyPage';
 
@@ -26,9 +31,12 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
   },
-  toolbar: {
-    paddingRight: 24, // keep right padding when drawer closed
+  bottom: {
+    width: '100%',
+    position: 'fixed',
+    bottom: 0,
   },
+  toolbar: {},
   toolbarIcon: {
     display: 'flex',
     alignItems: 'center',
@@ -76,6 +84,21 @@ const useStyles = makeStyles(theme => ({
 export default function PageLayout({ children }: any) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [value, setValue] = React.useState(0);
+  const intl = useIntl();
+
+  React.useEffect(() => {
+    if (value === 0) {
+      Router.push('/');
+    }
+    if (value === 1) {
+      Router.push('/favorites');
+    }
+    if (value === 2) {
+      Router.push('/about');
+    }
+  }, [value]);
+
   return (
     <div className={classes.root}>
       <Head>
@@ -110,14 +133,27 @@ export default function PageLayout({ children }: any) {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           {children}
-          <Box pt={4}>
-            <Copyright />
-          </Box>
         </Container>
+
       </main>
-      <Dialog fullScreen open={open} onClose={() => setOpen(false)} >
+
+      <BottomNavigation
+        value={value}
+        onChange={(_event, newValue) => {
+          setValue(newValue);
+        }}
+        showLabels
+        className={classes.bottom}
+      >
+        <BottomNavigationAction label={intl.formatMessage({id: 'app.components.nav.home'})} icon={ <HomeIcon />} />
+        <BottomNavigationAction label={intl.formatMessage({id: 'app.components.nav.fav'})} icon={<FavoriteIcon />} />
+        <BottomNavigationAction showLabel label={intl.formatMessage({id: 'app.components.nav.about'})} icon={<InfoIcon />} />
+        
+      </BottomNavigation>
+
+      {process.env.showAddCompanyForm && <Dialog fullScreen open={open} onClose={() => setOpen(false)} >
         <AddCompanyPage onClose={() => setOpen(false)}/>
-      </Dialog>
+      </Dialog>}
     </div>
   )
 }
