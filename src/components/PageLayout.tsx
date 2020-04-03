@@ -104,11 +104,6 @@ export default function PageLayout({ children }: any) {
       <CssBaseline />
       <AppBar position="absolute" className={classes.appBar}>
           <Toolbar className={classes.toolbar}>
-            <Link href="/" passHref>
-              <IconButton aria-label="back" color="inherit">
-                  <HomeIcon />
-              </IconButton>
-            </Link>
             <Typography align="center" component="h1" variant="h6" color="inherit" noWrap  className={classes.title}>
               Covid
             </Typography>
