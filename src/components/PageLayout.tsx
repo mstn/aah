@@ -99,9 +99,11 @@ export default function PageLayout({ children }: any) {
             <Typography align="center" component="h1" variant="h6" color="inherit" noWrap  className={classes.title}>
               Covid
             </Typography>
-            <IconButton onClick={() => setOpen(true)} aria-label="add" color="inherit">
-                <AddIcon />
-            </IconButton>
+            {process.env.showAddCompanyForm &&
+              <IconButton onClick={() => setOpen(true)} aria-label="add" color="inherit">
+                  <AddIcon />
+              </IconButton>
+            }
           </Toolbar>
       </AppBar>
       <main className={classes.content}>

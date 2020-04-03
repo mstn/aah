@@ -5,17 +5,15 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "pre:export": "yarn build",
+    "export": "next export"
   },
   "dependencies": {
-    "@apollo/react-hooks": "^3.1.3",
-    "@apollo/react-ssr": "^3.1.3",
     "@material-ui/core": "^4.9.7",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.46",
-    "apollo-boost": "^0.4.7",
     "final-form": "^4.18.7",
-    "graphql": "^14.6.0",
     "isomorphic-unfetch": "^3.0.0",
     "libphonenumber-js": "^1.7.49",
     "next": "9.3.1",

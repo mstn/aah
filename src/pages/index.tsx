@@ -2,8 +2,6 @@ import React from 'react';
 
 import { useRouter } from 'next/router';
 
-import CircularProgress from '@material-ui/core/CircularProgress';
-
 import CompanySearchPage from '../components/CompanySearchPage';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -39,18 +37,14 @@ const Home = (props: any) => {
     setState(applyFilter(props.companies, props.currentPage, search))
   }, [search]);
 
-  // @ts-ignore
-  if (global.window && global.window.location.search !== '' && search === '') {
-    return <CircularProgress className={classes.progress} />
-  }
-
   return (
     <CompanySearchPage {...state} onSearch={setSearch} keyword={search} currentPage={props.currentPage} />
   );
 }
 
 export async function getStaticProps() {
-  let companies = require('../../mocks/companies.json');
+  const localDataFolder = process.env.localDataFolder;
+  let companies = require(`../../${localDataFolder}/companies.json`);
 
   return {
     props: {

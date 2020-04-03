@@ -20,7 +20,6 @@ const Page = (props: any) => {
   const router = useRouter();
   const search = router.query.search || '';
 
-  // if search !== '', show loading wheel
   const [state, setState] = React.useState(applyFilter(props.companies, props.currentPage, search));
   
   const setSearch = (keyword: string) => router.push('/?search=' + keyword);
@@ -36,7 +35,9 @@ const Page = (props: any) => {
 
 export async function getStaticPaths() {
 
-  const companies = require('../../../mocks/companies.json');
+  const localDataFolder = process.env.localDataFolder;
+  let companies = require(`../../../${localDataFolder}/companies.json`);
+
   const totalCount = companies.length;
   const paths = [];
     
@@ -54,7 +55,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const pageId = params.id;
-  const companies = require('../../../mocks/companies.json');
+  const localDataFolder = process.env.localDataFolder;
+  let companies = require(`../../../${localDataFolder}/companies.json`);
 
   return {
     props: {

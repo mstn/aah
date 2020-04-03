@@ -14,7 +14,7 @@ const SearchBox = (props: any) => {
       fullWidth
       value={value}
       onChange={event => onSearch(event.currentTarget.value)}
-      placeholder={intl.formatMessage({ id: 'app.pages.home.typeYourAddress' })}
+      placeholder={intl.formatMessage({ id: 'app.components.searchBox.search' })}
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">

@@ -1,5 +1,6 @@
 module.exports = {
   env: {
-    graphql: 'http://localhost:4000/graphql',
+    showAddCompanyForm: false,
+    localDataFolder: 'mocks'
   },
 }
