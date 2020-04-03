@@ -1,7 +1,43 @@
+import React from 'react';
+
 import CompanyProfile from '../../components/Company';
 
+const getCompanyFromLocalStorage = (companyId) => {
+  let favorites = {};
+  const data = localStorage.getItem('companies');
+  if (data) {
+    try {
+      favorites = JSON.parse(data);
+    } catch(e) {
+      console.error('currupted local storage: it should contain a json');
+    }
+  }
+  return favorites[companyId] || {};
+}
+
 const Company = ({ company }) => {
-  return <CompanyProfile {...company} />
+  const [isFavorite, setFavorite] = React.useState(false);
+  const handleToggleFavorite = () => setFavorite(!isFavorite);
+  React.useEffect(() => {
+    const item = getCompanyFromLocalStorage(company.id);
+    setFavorite(item.isFavorite);
+  }, [])
+  React.useEffect(() => {
+    let favorites = {};
+    const data = localStorage.getItem('companies');
+    if (data) {
+      try {
+        favorites = JSON.parse(data);
+      } catch(e) {
+        console.error('currupted local storage: it should contain a json');
+      }
+    }
+    const currentItem = favorites[company.id] || company;
+    currentItem['isFavorite'] = isFavorite;
+    favorites[company.id] = currentItem;
+    localStorage.setItem('companies', JSON.stringify(favorites));
+  }, [isFavorite])
+  return <CompanyProfile company={company} isFavorite={isFavorite} onToggleFavorite={handleToggleFavorite} />
 }
 
 // Company page is pre-rendered at compile time for SEO

@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
 export default function Company(props: any) {
   const classes = useStyles();
 
-  const { name, address, notes } = props;
+  const { company: { name, address, notes }, onToggleFavorite, isFavorite } = props;
 
   return (
     <Card className={classes.root}>
@@ -39,8 +39,8 @@ export default function Company(props: any) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+        <IconButton onClick={onToggleFavorite} aria-label="add to favorites">
+          <FavoriteIcon color={ isFavorite ? 'error' : 'disabled' }/>
         </IconButton>
       </CardActions>
     </Card>
