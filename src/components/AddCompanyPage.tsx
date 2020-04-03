@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Router from 'next/router';
-
 import { FormattedMessage } from 'react-intl';
 
 import AppBar from '@material-ui/core/AppBar';
@@ -14,9 +12,6 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 
 import { makeStyles } from '@material-ui/core/styles';
-
-import { gql } from 'apollo-boost';
-import { useMutation } from '@apollo/react-hooks';
 
 import AddCompanyForm from "./AddCompanyForm";
 
@@ -53,43 +48,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export const CREATE_COMPANY = gql`
-mutation addCompany(
-  $kind: String! = ""
-  $name: String!
-  $address: String!
-  $phone: String!
-  $email: String!
-  $notes: String!
-  $isLocalDeliveryAvailable: Boolean!
-) {
-  addCompany(
-    kind: $kind
-    name: $name
-    address: $address
-    phone: $phone
-    email: $email
-    notes: $notes
-    isLocalDeliveryAvailable: $isLocalDeliveryAvailable
-  ) {
-    id
-  }
-}
-`;
-
 const AddCompanyPage = (props: any) => {
   const { onClose } = props;
   const classes = useStyles();
-  const [addCompany, result] = useMutation(CREATE_COMPANY, {
-    // Quick fix for this bug
-    // https://github.com/apollographql/react-apollo/issues/2614
-    onError: () => {},
-  });
-  React.useEffect(() => {
-    if (result.called && !result.error && result.data) {
-      onClose();
-    }
-  }, [result]);
 
   // TODO display errors
   return (
@@ -120,14 +81,11 @@ const AddCompanyPage = (props: any) => {
         <Paper className={classes.root}>
           <AddCompanyForm
             onSubmit={
-              company =>
-                addCompany({
-                  variables: {
-                    ...company,
-                    isLocalDeliveryAvailable: !!company.isLocalDeliveryAvailable,
-                    kind: 'test'
-                  },
-                })
+              (company: any) => {
+                // TODO add your logic here
+                console.log(company);
+                alert('Saved!');
+              }
             } 
           />
         </Paper>
