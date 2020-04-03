@@ -130,7 +130,7 @@ export default function PageLayout({ children }: any) {
         <BottomNavigationAction 
           label={intl.formatMessage({id: 'app.components.nav.home'})} 
           icon={
-            <Link href="/" passHref>
+            <Link href="/" as={`${process.env.ASSET_PREFIX}/`} passHref>
               <HomeIcon/>
             </Link>
           } 
@@ -138,7 +138,7 @@ export default function PageLayout({ children }: any) {
         <BottomNavigationAction 
           label={intl.formatMessage({id: 'app.components.nav.fav'})} 
           icon={
-            <Link href="/favorites" passHref>
+            <Link href="/favorites" as={`${process.env.ASSET_PREFIX}/favorites`} passHref>
               <FavoriteIcon/>
             </Link>
           } 
@@ -146,7 +146,7 @@ export default function PageLayout({ children }: any) {
         <BottomNavigationAction 
           label={intl.formatMessage({id: 'app.components.nav.about'})} 
           icon={
-            <Link href="/about" passHref>
+            <Link href="/about" as={`${process.env.ASSET_PREFIX}/about`} passHref>
               <InfoIcon/>
             </Link>
           } 

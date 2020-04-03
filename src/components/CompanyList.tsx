@@ -26,7 +26,11 @@ export default function CompanyList(props: any) {
     <React.Fragment>
       <List>
         {data.map( company => (
-          <Link key={company.id} href={`/companies/${company.id}`} passHref>
+          <Link 
+            key={company.id} 
+            href={`/companies/${company.id}`} 
+            as={`${process.env.ASSET_PREFIX}/companies/${company.id}`}
+            passHref>
             <ListItem>
               <ListItemAvatar>
                 <Avatar>

@@ -1,11 +1,12 @@
 import React from 'react';
 
+import Link from 'next/link';
+
 import Pagination from '@material-ui/lab/Pagination';
 import PaginationItem from '@material-ui/lab/PaginationItem';
 
 import CompanyList from '../components/CompanyList';
 import SearchBox from '../components/SearchBox';
-import { Link } from '@material-ui/core';
 
 const CompanySearchPage = (props: any) => {
   const { totalCount, companies, currentPage, onSearch, keyword, isLoading } = props;
@@ -22,7 +23,7 @@ const CompanySearchPage = (props: any) => {
             return <PaginationItem {...item}></PaginationItem>
           }
           return (
-            <Link href={`/pages/${item.page}?search=${keyword}`}>
+            <Link href={`/pages/${item.page}?search=${keyword}`} as={`${process.env.ASSET_PREFIX}/pages/${item.page}?search=${keyword}`} passHref>
               <PaginationItem {...item}></PaginationItem>
             </Link>
           );
