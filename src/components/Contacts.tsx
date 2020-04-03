@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 export default function Contacts(props: any) {
   const classes = useStyles();
 
-  const { phone, email, isLocalShippingAvailable } = props;
+  const { company: { phone, email, isLocalShippingAvailable } } = props;
 
   return (
     <List
