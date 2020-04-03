@@ -1,7 +1,5 @@
 # All At Home (Aah!)
 
-* 🧡 Help us! 🧡
-
 In Italy, during the covid lockdown, a common problem is to find food shops offering delivery service or pick-up points. Supermarkets and big operators are often stuck. Small local shops are working, but some of them are struggling for the increased demand.
 
 The goal of this project is to make easier for people to find and buy from local places that offer home delivery and/or pick-up points. In this way queues and, as a consequence, human contacts can be more easily avoided.
@@ -18,15 +16,18 @@ This project has also a broader view. In these days, we learned that work from h
 
 ## Design principles
 
-From a JSON files with a list of companies, we can generate a fully static webapp.
+From a JSON file with a list of companies, we can generate a fully static webapp.
+
+A static webapp is better than a dynamic one in an emergency context for the following reasons:
 
 * More performant, pages are pre-rendered at compile time.
 * More resilient, you do not need a complex infrastructure to run it
 * It works offline, can be downloaded and does not require an Internet connection
+* You are not tracked
 
 ## Getting started
 
-Prerequirements: nodejs and yarn.
+Prerequirements: `nodejs` and `yarn`.
 
 Copy a file `companies.json` with your companies in `mocks` folder. Companies should have the same format as in the example file.
 
@@ -42,7 +43,7 @@ Export the app.
 $ yarn export
 ```
 
-In `out` you can find the generated html. You can deploy it on github or where you like.
+In `out` you can find the generated html. You can deploy it on github pages, on another hosting service or on your computer.
 
 ```
 $ serve out
@@ -55,10 +56,14 @@ Currently, we have only one i18n file for Italian. However, the app can be custo
 * Put a json describing i18n labels in `src/locale`.
 * Setup your locale and i18n labels In `src/pages/_app.tsx` 
 
-## Adding dynamical behaviors
+## Adding dynamical behaviors (WIP)
+
+The basic app is static, but we are working on more dynamic services.
 
 If you set `showAddCompanyForm` to true in `next.config.js`, a button for adding new companies will appear in the toolbar.
-The logic of adding a company is missing, you need to send data to a REST endpoint. However, form validation logic is implemented.
+When you click on it, a form for adding a new company appears. Form validation logic works, but the actual logic for adding a company is missing.
+
+You need to provide this logic. E.g. http call to some REST APIs.
 
 ## Can I use your code in my country/town/neighborhood?
 
