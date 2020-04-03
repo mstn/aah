@@ -3,17 +3,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 import CompanySearchPage from '../../components/CompanySearchPage';
-
-const applyFilter = (companies, currentPage, search) => {
-  const filteredCompanies = companies.filter( 
-    company => company.address.startsWith(search)
-  );
-
-  return {
-    companies: filteredCompanies.slice((currentPage-1)*10, (currentPage-1)*10 + 10),
-    totalCount: filteredCompanies.length,
-  }
-}
+import applyFilter from '../../lib/applyFilter';
 
 const Page = (props: any) => {
   

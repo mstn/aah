@@ -6,22 +6,14 @@ import CompanySearchPage from '../components/CompanySearchPage';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+import applyFilter from '../lib/applyFilter';
+
 const useStyles = makeStyles(theme => ({
   progress: {
     margin: theme.spacing(2),
   },
 }));
 
-const applyFilter = (companies, currentPage, search) => {
-  const filteredCompanies = companies.filter( 
-    company => company.address.startsWith(search)
-  );
-
-  return {
-    companies: filteredCompanies.slice((currentPage-1)*10, (currentPage-1)*10 + 10),
-    totalCount: filteredCompanies.length,
-  }
-}
 
 // TODO refactor code, it is in common with pages/pages/[id].tsx
 const Home = (props: any) => {
