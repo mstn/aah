@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Head from 'next/head';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { useIntl } from 'react-intl';
@@ -84,20 +84,10 @@ const useStyles = makeStyles(theme => ({
 export default function PageLayout({ children }: any) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState(0);
   const intl = useIntl();
+  const router = useRouter()
 
-  React.useEffect(() => {
-    if (value === 0) {
-      Router.push('/');
-    }
-    if (value === 1) {
-      Router.push('/favorites');
-    }
-    if (value === 2) {
-      Router.push('/about');
-    }
-  }, [value]);
+  const selectedTab = router.pathname === '/about' ? 2 : router.pathname === '/favorites' ? 1 : 0;
 
   return (
     <div className={classes.root}>
@@ -138,16 +128,34 @@ export default function PageLayout({ children }: any) {
       </main>
 
       <BottomNavigation
-        value={value}
-        onChange={(_event, newValue) => {
-          setValue(newValue);
-        }}
         showLabels
+        value={selectedTab}
         className={classes.bottom}
       >
-        <BottomNavigationAction label={intl.formatMessage({id: 'app.components.nav.home'})} icon={ <HomeIcon />} />
-        <BottomNavigationAction label={intl.formatMessage({id: 'app.components.nav.fav'})} icon={<FavoriteIcon />} />
-        <BottomNavigationAction showLabel label={intl.formatMessage({id: 'app.components.nav.about'})} icon={<InfoIcon />} />
+        <BottomNavigationAction 
+          label={intl.formatMessage({id: 'app.components.nav.home'})} 
+          icon={
+            <Link href="/" passHref>
+              <HomeIcon/>
+            </Link>
+          } 
+        />
+        <BottomNavigationAction 
+          label={intl.formatMessage({id: 'app.components.nav.fav'})} 
+          icon={
+            <Link href="/favorites" passHref>
+              <FavoriteIcon/>
+            </Link>
+          } 
+        />
+        <BottomNavigationAction 
+          label={intl.formatMessage({id: 'app.components.nav.about'})} 
+          icon={
+            <Link href="/about" passHref>
+              <InfoIcon/>
+            </Link>
+          } 
+        />
         
       </BottomNavigation>
 
