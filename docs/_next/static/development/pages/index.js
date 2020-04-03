@@ -59775,7 +59775,7 @@ var __N_SSG = true;
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!*************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fhome%2Fmarco%2FWork%2Fcovid%2Fsrc%2Fpages%2Findex.tsx ***!
   \*************************************************************************************************************************/
@@ -59798,5 +59798,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

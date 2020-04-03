@@ -33,7 +33,7 @@ export async function getStaticPaths() {
     
   for (let i=0; i<Math.ceil(totalCount/10); i++) {
     const pageId = i + 1;
-    paths.push(`/pages/${pageId}`);
+    paths.push({ params: { id: '' + pageId} });
   }
 
   return {
