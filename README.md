@@ -6,6 +6,8 @@ The goal of this project is to make easier for people to find and buy from local
 
 This project has also a broader view. In these days, we learned that work from home and local shopping are possible. We would like to built a solid platform to allow people to buy local even after the epidemic is over.
 
+[Demo](https://mstn.github.io/aah/) (data are fake)
+
 ## How can I help?
 
 * Code and design
