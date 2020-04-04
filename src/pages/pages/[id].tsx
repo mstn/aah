@@ -3,25 +3,65 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 import CompanySearchPage from '../../components/CompanySearchPage';
+
+import { makeStyles } from '@material-ui/core/styles';
+
 import applyFilter from '../../lib/applyFilter';
+import getLocations from '../../lib/getLocations';
+
+const useStyles = makeStyles(theme => ({
+  progress: {
+    margin: theme.spacing(2),
+  },
+}));
+
+const getLocationFromLocalStorage = () => {
+  return localStorage.getItem('location') || null;
+}
+
+const setLocationToLocalStorage = (location: string) => {
+  if (location !== null) {
+    localStorage.setItem('location', location);
+  } else {
+    localStorage.removeItem('location');
+  }
+}
 
 const Page = (props: any) => {
-  
+  const classes = useStyles();
   const router = useRouter();
   const search = router.query.search || '';
-
-  const [state, setState] = React.useState(applyFilter(props.companies, props.currentPage, search));
+  const locations = getLocations(props.companies);
   
-  const setSearch = (keyword: string) => router.push(`${process.env.ASSET_PREFIX}/?search=${keyword}`);
+  const [state, setState] = React.useState(applyFilter(props.companies, props.currentPage, search));
+  const [location, setLocation] = React.useState(null);
+
+  const setSearch = (keyword: string) => router.push(`${process.env.ASSET_PREFIX}/?search=` + keyword);
+
+  // set location with previously stored value
+  React.useEffect(() => {
+    const item = getLocationFromLocalStorage();
+    setLocation(item);
+  }, []);
 
   React.useEffect(() => {
-    setState(applyFilter(props.companies, props.currentPage, search))
-  }, [search]);
+    setLocationToLocalStorage(location);
+    setState(applyFilter(props.companies, props.currentPage, search, location))
+  }, [search, location]);
 
   return (
-    <CompanySearchPage {...state} onSearch={setSearch} keyword={search} currentPage={props.currentPage} />
+    <CompanySearchPage 
+      {...state} 
+      onSearch={setSearch} 
+      onLocationSelected={setLocation}
+      keyword={search} 
+      currentPage={props.currentPage} 
+      locations={locations}
+      location={location}
+    />
   );
 }
+
 
 export async function getStaticPaths() {
 

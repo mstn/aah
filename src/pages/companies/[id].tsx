@@ -13,7 +13,7 @@ const getCompanyFromLocalStorage = (companyId) => {
     }
   }
   return favorites[companyId] || {};
-}
+} 
 
 const Company = ({ company }) => {
   const [isFavorite, setFavorite] = React.useState(false);
