@@ -16,6 +16,15 @@ This project has also a broader view. In these days, we learned that work from h
 * Suggest ideas
 * Find a better name for the project
 
+## Credits
+
+Data in `mocks` are generated from a open data dataset kindly offered by the Province of Trento.
+
+* Original source: [Consegno in Trentino](https://consegnointrentino.provincia.tn.it/Open-Data).
+* Data license is [CC-BY](https://creativecommons.org/licenses/by/4.0/deed.it), .
+* Data owner is Provincia Autonoma di Trento.
+* Data were modified and adapted to the format required by this app. In the future, we are going to enrich the dataset with information from other sources.
+
 ## Design principles
 
 From a JSON file with a list of companies, we can generate a fully static webapp.

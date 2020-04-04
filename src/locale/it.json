@@ -3,6 +3,8 @@
   "app.pages.company.localShippingAvailable": "Effettua consegne a domicilio",
   "app.pages.add.title": "Aggiungi esercente",
   "app.pages.add.save": "Salva",
+  "app.pages.about.title": "Chi siamo",
+  "app.pages.about.mission": "Aah è un progetto opensource per consentire alle persone di trovare esercenti che effettuano consegne a domicilio durante l'emergenza covid.",
   "app.components.addCompany.addMoreUsefulInfo": "Aggiungi altre informazioni utili",
   "app.components.addCompany.localShippingAvailable": "Effettua consegne a domicilio",
   "app.components.addCompany.email": "Email",
