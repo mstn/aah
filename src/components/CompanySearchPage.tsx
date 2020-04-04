@@ -8,15 +8,34 @@ import PaginationItem from '@material-ui/lab/PaginationItem';
 import CompanyList from '../components/CompanyList';
 import SearchBox from '../components/SearchBox';
 
-const CompanySearchPage = (props: any) => {
-  const { totalCount, companies, currentPage, onSearch, keyword, isLoading } = props;
 
+const CompanySearchPage = (props: any) => {
+  const { 
+    totalCount, 
+    companies, 
+    currentPage, 
+    onSearch, 
+    onLocationSelected,
+    keyword, 
+    isLoading, 
+    locations,
+    location,
+  } = props;
+  
   return (
     <React.Fragment>
-      <SearchBox value={keyword} onSearch={onSearch}/>
+      <SearchBox 
+        value={keyword} 
+        location={location}
+        onSearch={onSearch} 
+        onLocationSelected={onLocationSelected} 
+        locations={locations} 
+      />
       <CompanyList data={companies} loading={isLoading} />
       {!isLoading && <Pagination 
         page={currentPage} 
+        hideNextButton
+        hidePrevButton
         count={Math.ceil(totalCount/10)}
         renderItem={ (item: any) => {
           if (item.type !== 'page') {

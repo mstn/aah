@@ -25,9 +25,9 @@ export default function CompanyList(props: any) {
   return (
     <React.Fragment>
       <List>
-        {data.map( company => (
+        {data.map( (company, index) => (
           <Link 
-            key={company.id} 
+            key={index} 
             href={`/companies/${company.id}`} 
             as={`${process.env.ASSET_PREFIX}/companies/${company.id}`}
             passHref>
