@@ -9,7 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 
-import StorefrontIcon from '@material-ui/icons/Storefront';
+import CompanyIcon from './CompanyIcon';
 
 export default function CompanyList(props: any) {
   const { data, loading } = props;
@@ -34,7 +34,7 @@ export default function CompanyList(props: any) {
             <ListItem>
               <ListItemAvatar>
                 <Avatar>
-                  <StorefrontIcon />
+                  <CompanyIcon {...company} />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText primary={company.name} secondary={company.address} />

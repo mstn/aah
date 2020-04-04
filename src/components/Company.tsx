@@ -10,7 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
-import StorefrontIcon from '@material-ui/icons/Storefront';
+import CompanyIcon from './CompanyIcon';
 
 import Contacts from './Contacts';
 
@@ -21,13 +21,14 @@ const useStyles = makeStyles(() => ({
 export default function Company(props: any) {
   const classes = useStyles();
 
-  const { company: { name, address, notes }, onToggleFavorite, isFavorite } = props;
+  const { company, onToggleFavorite, isFavorite } = props;
+  const { name, address, notes } = company;
 
   return (
     <Card className={classes.root}>
       <CardHeader
         avatar={
-          <StorefrontIcon />
+          <CompanyIcon {...company} />
         }
         title={name}
         subheader={address}
