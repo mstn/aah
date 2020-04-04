@@ -1,6 +1,3 @@
-
-
-import ifElse from 'ramda/src/ifElse';
 import compose from 'ramda/src/compose';
 import equals from 'ramda/src/equals';
 import any from 'ramda/src/any';
@@ -8,11 +5,8 @@ import prop from 'ramda/src/prop';
 import isNil from 'ramda/src/isNil';
 import always from 'ramda/src/always';
 import filter from 'ramda/src/filter';
-import propEq from 'ramda/src/propEq';
 import allPass from 'ramda/src/allPass';
 import anyPass from 'ramda/src/anyPass';
-import tap from 'ramda/src/tap';
-
 
 const isLike = (a: string, b: string) => {
   const re = new RegExp(b, 'ig');
@@ -48,6 +42,7 @@ const applyFilter = (companies, currentPage, search, location = null) => {
   return {
     companies: filteredCompanies.slice((currentPage-1)*10, (currentPage-1)*10 + 10),
     totalCount: filteredCompanies.length,
+    currentPage,
   }
 }
 
