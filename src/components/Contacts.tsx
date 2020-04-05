@@ -31,12 +31,15 @@ export default function Contacts(props: any) {
 
   const { company: { isLocalShippingAvailable } } = props;
 
-  // this should make harder for crawlers to find emails and phones
-  const decodedEmail = codec.decode(props.company.email, 'base64');
-  const decodedPhone = codec.decode(props.company.phone, 'base64');
+  const hasEmail = !!props.company.email;
+  const hasPhone = !!props.company.phone;
 
-  const [email, setEmail] = React.useState(`${decodedEmail.slice(0, 3)}${'X'.repeat(decodedEmail.length-3)}`);
-  const [phone, setPhone] = React.useState(`${decodedPhone.slice(0, 3)}${'X'.repeat(decodedPhone.length-3)}`);
+  // this should make harder for crawlers to find emails and phones
+  const decodedEmail = codec.decode(props.company.email || '', 'base64');
+  const decodedPhone = codec.decode(props.company.phone || '', 'base64');
+
+  const [email, setEmail] = React.useState(`${decodedEmail.slice(0, 3)}${'X'.repeat(Math.max(3, decodedEmail.length-3))}`);
+  const [phone, setPhone] = React.useState(`${decodedPhone.slice(0, 3)}${'X'.repeat(Math.max(3, decodedPhone.length-3))}`);
 
   const showEmail = () => setEmail(decodedEmail);
   const showPhone = () => setPhone(decodedPhone);
@@ -50,18 +53,18 @@ export default function Contacts(props: any) {
       aria-labelledby="nested-list-subheader"
       className={classes.root}
     >
-      <ListItem onClick={showPhone}>
+      {hasPhone && <ListItem onClick={showPhone}>
         <ListItemIcon>
           <PhoneIcon />
         </ListItemIcon>
         <ListItemText primary={phone} secondary={revealPhoneMessage} />
-      </ListItem>
-      <ListItem onClick={showEmail}>
+      </ListItem>}
+      {hasEmail && <ListItem onClick={showEmail}>
         <ListItemIcon>
           <EmailIcon />
         </ListItemIcon>
         <ListItemText primary={email} secondary={revealEmailMessage} />
-      </ListItem>
+      </ListItem>}
       {isLocalShippingAvailable && <ListItem>
         <ListItemIcon>
           <LocalShippingIcon />
