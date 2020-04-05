@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[14],{"OXD+":function(n,w,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/pages/[id]",function(){return o("Thf1")}])}},[["OXD+",0,1,2,4,3,5,6,7]]]);

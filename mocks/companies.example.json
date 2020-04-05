@@ -1,0 +1,25 @@
+[
+  {
+   "id": "az-agricola-xyz",
+   "name": "Azienda Agricola",
+   "description": "Ortaggi Biologici e Patate Bio",
+   "kind": "agriculture",
+   "address": "Trento, Trentino-Alto Adige, Italia",
+   "coordinates": {
+    "latitude": 46.1,
+    "longitude": 11.0
+   },
+   "phone": "MDQ2MTY2NjY2Ng==",
+   "email": "bWFpbEBleGFtcGxlLmNvbQ==",
+   "whatapp": null,
+   "web": null,
+   "isLocalDeliveryAvailable": true,
+   "deliveryPlaces": [
+    "Trento"
+   ],
+   "notes": "",
+   "published": "2020-04-01T14:11:05+02:00",
+   "modified": "2020-04-01T16:06:55+02:00",
+   "source": "https://consegnointrentino.provincia.tn.it/"
+  }
+]
