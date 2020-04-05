@@ -16,5 +16,6 @@
   "app.components.nav.fav": "Preferiti",
   "app.components.nav.about": "Chi siamo",
   "app.components.company.deliversTo": "Consegna a",
-  "app.components.searchBox.where": "Dove consegnare?"
+  "app.components.searchBox.where": "Dove consegnare?",
+  "app.components.contact.clickToReveal": "Clicca per vedere"
 }

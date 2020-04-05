@@ -4221,6 +4221,11 @@ node-releases@^1.1.44, node-releases@^1.1.52:
   dependencies:
     semver "^6.3.0"
 
+nodejs-base64-encode@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/nodejs-base64-encode/-/nodejs-base64-encode-1.1.0.tgz#5e11ae6142b4a61976b2bb0b65cc545925eea35e"
+  integrity sha512-KVAtRWpmL/Pb9X0eHb/w73Z9iVaiOKnEyXzijvp9Yopyf2iA97ciWq8YlXIgu2tDwUZ4JPswksbWixBNn1+LdQ==
+
 normalize-html-whitespace@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/normalize-html-whitespace/-/normalize-html-whitespace-1.0.0.tgz#5e3c8e192f1b06c3b9eee4b7e7f28854c7601e34"

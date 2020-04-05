@@ -8,7 +8,7 @@ module.exports = {
     localDataFolder: 'mocks',
     ASSET_PREFIX: assetPrefix,
   },
-  exportTrailingSlash: true,
+ /* exportTrailingSlash: true,
   exportPathMap: async function() {
     const paths = {
       '/': { page: '/' },
@@ -28,5 +28,5 @@ module.exports = {
     }
 
     return paths;
-  }
+  }*/
 }

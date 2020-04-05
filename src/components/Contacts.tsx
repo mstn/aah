@@ -2,7 +2,7 @@ import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -12,6 +12,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import EmailIcon from '@material-ui/icons/Email';
 import PhoneIcon from '@material-ui/icons/Phone';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
+
+const codec = require('nodejs-base64-encode');
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,8 +27,22 @@ const useStyles = makeStyles(theme => ({
 
 export default function Contacts(props: any) {
   const classes = useStyles();
+  const intl = useIntl();
 
-  const { company: { phone, email, isLocalShippingAvailable } } = props;
+  const { company: { isLocalShippingAvailable } } = props;
+
+  // this should make harder for crawlers to find emails and phones
+  const decodedEmail = codec.decode(props.company.email, 'base64');
+  const decodedPhone = codec.decode(props.company.phone, 'base64');
+
+  const [email, setEmail] = React.useState(`${decodedEmail.slice(0, 3)}${'X'.repeat(decodedEmail.length-3)}`);
+  const [phone, setPhone] = React.useState(`${decodedPhone.slice(0, 3)}${'X'.repeat(decodedPhone.length-3)}`);
+
+  const showEmail = () => setEmail(decodedEmail);
+  const showPhone = () => setPhone(decodedPhone);
+
+  const revealEmailMessage = email !== decodedEmail ? intl.formatMessage({id: "app.components.contact.clickToReveal"}) : ''
+  const revealPhoneMessage = phone !== decodedPhone ? intl.formatMessage({id: "app.components.contact.clickToReveal"}) : ''
 
   return (
     <List
@@ -34,19 +50,19 @@ export default function Contacts(props: any) {
       aria-labelledby="nested-list-subheader"
       className={classes.root}
     >
-      <ListItem button>
+      <ListItem onClick={showPhone}>
         <ListItemIcon>
           <PhoneIcon />
         </ListItemIcon>
-        <ListItemText primary={phone} />
+        <ListItemText primary={phone} secondary={revealPhoneMessage} />
       </ListItem>
-      <ListItem button>
+      <ListItem onClick={showEmail}>
         <ListItemIcon>
           <EmailIcon />
         </ListItemIcon>
-        <ListItemText primary={email} />
+        <ListItemText primary={email} secondary={revealEmailMessage} />
       </ListItem>
-      {isLocalShippingAvailable && <ListItem button>
+      {isLocalShippingAvailable && <ListItem>
         <ListItemIcon>
           <LocalShippingIcon />
         </ListItemIcon>
