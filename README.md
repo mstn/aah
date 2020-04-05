@@ -6,7 +6,9 @@ The goal of this project is to make easier for people to find and buy from local
 
 This project has also a broader view. In these days, we learned that work from home and local shopping are possible. We would like to built a solid platform to allow people to buy local even after the epidemic is over.
 
-[Demo](https://mstn.github.io/aah/) (data are fake)
+Apps built using this project by region/provice
+* [Trentino](https://mstn.github.io/aah/), data from [Consegno in Trentino](https://consegnointrentino.provincia.tn.it/Open-Data).
+* ...
 
 ## How can I help?
 
@@ -18,12 +20,12 @@ This project has also a broader view. In these days, we learned that work from h
 
 ## Credits
 
-Data in `mocks` are generated from a open data dataset kindly offered by the Province of Trento.
+Data for [Trentino App](https://mstn.github.io/aah/) are generated from a open data dataset kindly offered by the Province of Trento.
 
 * Original source: [Consegno in Trentino](https://consegnointrentino.provincia.tn.it/Open-Data).
 * Data license is [CC-BY](https://creativecommons.org/licenses/by/4.0/deed.it), .
 * Data owner is Provincia Autonoma di Trento.
-* Data were modified and adapted to the format required by this app. In the future, we are going to enrich the dataset with information from other sources.
+* Data were modified and adapted to the format required by this app. We encoded emails and phone numbers in `base64` to make life harder for bad crawlers (let us know if you have a better idea!). In the future, we are going to enrich the dataset with information from other sources.
 
 ## Design principles
 
